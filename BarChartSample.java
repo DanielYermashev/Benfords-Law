@@ -47,6 +47,7 @@ public class BarChartSample extends Application {
     public static void main(String[] args) {
         launch(args);
 
+        
         String filePath = "/Users/daiphylee/11 ComSci Java Lessons/A. Assignments/Benford's Law/Benfords-Law/sales.csv";
 
         FileReader fr = new FileReader(filePath);
@@ -69,10 +70,13 @@ public class BarChartSample extends Application {
         }
         br.close();
 
+        double[] avg = new double[]{0,0,0,0,0,0,0,0,0,0};
+
         for(int index = 0; index < 10; index++) {
-            double average = tally[index] == 0 ? 0.0 : (((double)tally[index]) / count) * 100;
-            System.out.println("[" + index + "][" + tally[index] + "][" + count + "][" + Math.round(average * 100.0) / 100.0 + "]");
-        }  
+            avg[index] = tally[index] == 0?0.0: ( ((double)tally[index]) / count ) * 100;
+            // double average = tally[index] == 0 ? 0.0 : (((double)tally[index]) / count) * 100;
+            System.out.println("[" + index + "][" + tally[index] + "][" + count + "][" + Math.round(avg[index] * 100.0) / 100.0 + "]");
+        }
         
     }
 }
