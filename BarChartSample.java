@@ -6,6 +6,14 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
 
+
+import java.util.Scanner; // import scanner class
+import jdk.jfr.Percentage;
+import java.io.BufferedReader; // import buffer reader class (because scanner likes to skip lines)
+import java.io.FileReader; // import class to read files
+import java.io.*;
+import java.io.IOException;
+
 public class BarChartSample extends Application {
 
     @Override
@@ -38,5 +46,37 @@ public class BarChartSample extends Application {
 
     public static void main(String[] args) {
         launch(args);
+
+        
+        String filePath = "/Users/daiphylee/11 ComSci Java Lessons/A. Assignments/Benford's Law/Benfords-Law/sales.csv";
+
+        FileReader fr = new FileReader(filePath);
+        // initialize bufferedreader 
+        BufferedReader br = new BufferedReader(fr);
+
+        int[] tally = new int[]{0,0,0,0,0,0,0,0,0,0};
+        int count = 0;
+
+        for (String s = br.readLine(); s != null; s = br.readLine()){
+            String ld = Character.toString(s.charAt(4));
+            char[] digits = ld.toCharArray();
+            for(char digit : digits){
+                if(Character.isDigit(digit)){
+                    count++;
+                    tally[Integer.parseInt(Character.toString(digit))]++;
+                    break;
+                }
+            }
+        }
+        br.close();
+
+        double[] avg = new double[]{0,0,0,0,0,0,0,0,0,0};
+
+        for(int index = 0; index < 10; index++) {
+            avg[index] = tally[index] == 0?0.0: ( ((double)tally[index]) / count ) * 100;
+            // double average = tally[index] == 0 ? 0.0 : (((double)tally[index]) / count) * 100;
+            System.out.println("[" + index + "][" + tally[index] + "][" + count + "][" + Math.round(avg[index] * 100.0) / 100.0 + "]");
+        }
+        
     }
 }
