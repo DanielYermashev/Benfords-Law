@@ -1,5 +1,8 @@
 /**
- * 
+ * Name : Daiphy Lee & Daniel Yermashev
+ * Date : May 10, 2021
+ * Teacher : Mr. Ho
+ * Description : Benford's Law Assignement
  */
 
 //import classes
