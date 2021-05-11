@@ -204,7 +204,7 @@ class Final {
      */
     public static String fraudValidation(double[] arr) {
         // if the frequency percentage of 1 isn't in range then return yes -> yes fraud
-        if (arr[0] >= 32.0 && arr[0] <= 29.0) {
+        if (arr[0] > 32.0 && arr[0] < 29.0) {
             return "Yes";
         }
         // else return no -> no fraud
