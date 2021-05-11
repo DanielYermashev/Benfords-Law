@@ -1,9 +1,7 @@
-/**
- * Name : Daiphy Lee & Daniel Yermashev
- * Date : May 10, 2021
- * Teacher : Mr. Ho
- * Description : Benford's Law Assignement
- */
+//Names: Daniel Yermashev and Daiphy Lee
+//Date: 2021-05-10
+// Teacher Mr.Ho
+// Descritpion: Benfords law assignment
 
 //import classes
 import java.util.Scanner; // scanner
@@ -128,11 +126,11 @@ class Final {
      */
 
     public static void percentageArr(double[] percent, int[] tally, int count) {
-        int totalFrequency = sumArrElements(tally);
+
         // goes through each digits frequency
         for (int i = 1; i < tally.length; i++) {
             // rounds the percent to the hundredth decimal place
-            percent[i] = Math.round((tally[i] * 1.0 / totalFrequency) * 100 * 100.0) / 100.0;
+            percent[i] = Math.round((tally[i] * 1.0 / count) * 100 * 100.0) / 100.0;
             // DELETE LATER
             // System.out.println(
             // "[" + i + "][" + tally[i] + "][" + count + "][" + Math.round(percent[i] *
@@ -141,21 +139,6 @@ class Final {
         }
         // let user know if there's fraud && calls on fraud method
         System.out.println("Is there Fraud present? " + fraudValidation(percent));
-    }
-
-    /**
-     * Description: Getting the sum in the array
-     * 
-     * @author Daniel Yermashev
-     * @param arr
-     * @return
-     */
-    public static int sumArrElements(int[] arr) {
-        int sum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            sum += arr[i]; // accumulator variable
-        }
-        return sum;
     }
 
     /**
